@@ -1,0 +1,1 @@
+# trong day de export ra tat ca nhung model view hay controller
