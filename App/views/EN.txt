@@ -1,0 +1,6 @@
+{
+"WELCOME TO FINANCY" : "WELCOME TO FINANCY",  
+"Username" : "Username:",
+"Password" : "Password:",
+"Login" : "Login",
+}

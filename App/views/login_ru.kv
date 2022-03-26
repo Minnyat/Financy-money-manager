@@ -1,0 +1,69 @@
+<log_ru>
+    MDScreen:
+        name: "login_ru"
+        MDFloatLayout:
+            Image:
+                source: "assets/white_bg.png"
+                size_hint: None, None
+                size: root.size
+                allow_stretch: True
+                keep_ratio: False
+                pos_hint: {"center_x": .5, "center_y": .5}
+            Image:
+                source: "assets/bg login page.png"
+                size_hint: None, None
+                size: root.size
+                allow_stretch: True
+                keep_ratio: False
+                pos_hint: {"center_x": .5, "center_y": .5}
+            Image:
+                source: "assets/UserCircle.png"
+                size_hint: .50, .50
+                pos_hint: {"center_x": .5, "center_y": .750}
+            MDLabel:
+                text: app.main_label[1]
+                font_size: "15sp"
+                font_name: "assets/Fonts/verdanab.ttf"
+                pos_hint: {"center_x": .59, "center_y": .850}
+                color: 1, 1, 1
+
+            MDTextField:
+                id: Username
+                pos_hint: {"center_x": .5, "center_y": .6}
+                size_hint: .8, None
+                line_color_focus: 1, 1, 1, 1
+                hint_text: app.user_hint_text[1]
+                icon_right: "account"
+            MDTextField:
+                id: Password
+                font_name: "assets/Fonts/verdanab.ttf"
+                pos_hint: {"center_x": .5, "center_y": .5}
+                size_hint: .8, None
+                line_color_focus: 1, 1, 1, 1
+                hint_text: app.pass_hint_text[1]
+                icon_right: "key"
+                password: True
+                password_mask: "●"
+
+
+            MDIconButton:
+                id: en_button
+                pos_hint: {"center_x": .90, "center_y": .945}
+                icon: "assets/en_language.png"
+                user_font_size: "3sp"
+                on_release:
+                    root.manager.current = "login_en"
+            MDFillRoundFlatButton:
+                id: Login_Button
+                pos_hint: {"center_x": .5, "center_y": .4}
+                text: app.login_button[1]
+                font_name: "assets/Fonts/verdanab.ttf"
+                line_color: 1, 1, 1, 1
+                text_color: 157/255, 196/255, 212/255, 1
+                md_bg_color: 1, 1, 1, 1
+                on_press: app.get_data(Username.text, Password.text)
+            MDIconButton:
+                pos_hint: {"center_x": .93, "center_y": .045}
+                icon: "assets/add.png"
+                size_hint: None, None
+                font_size: "0sp"
