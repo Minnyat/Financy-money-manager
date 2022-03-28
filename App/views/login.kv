@@ -27,7 +27,6 @@
                 pos_hint: {"center_y": .850}
                 color: 1, 1, 1
 
-
             MDTextField:
                 id: Username
                 pos_hint: {"center_x": .5, "center_y": .6}
@@ -45,7 +44,6 @@
                 icon_right: "key"
                 password: True
                 password_mask: "●"
-
 
             MDIconButton:
                 id: lang_button
@@ -79,6 +77,8 @@
         MDFloatLayout:
             Image:
                 source: "assets/bg_register.png"
+                allow_stretch: True
+                keep_ratio: False
                 size_hint: None, None
                 size: root.size
                 pos_hint: {"center_x": .5, "center_y": .5}
@@ -91,7 +91,6 @@
                 on_release:
                     root.manager.transition.direction = "left"
                     root.manager.current = "login"
-
 
             MDTextField:
                 id: regi_first_name
@@ -121,7 +120,6 @@
                 password: True
                 password_mask: "●"
 
-
             MDRaisedButton
                 id: create_acc
                 text: "Create an account"
@@ -139,8 +137,3 @@
                 halign: "center"
                 font_size: "12sp"
                 pos_hint: {"center_y": .3}
-
-
-
-
-
