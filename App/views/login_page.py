@@ -6,15 +6,34 @@ from kivy.lang import Builder
 from kivy.core.window import Window
 Window.size = (360, 800)
 
-class log_en(Screen):
-    def press_en(self):
+class Login(Screen):
+
+    def __init__(self, **kwargs):
+        super(Login, self).__init__(**kwargs)
+        self.cur = 0
+        self.main_label = ["WELCOME TO FINANCY", "ДОБРО ПОЖАЛОВАТЬ В ФИНАНСЫ"]
+        self.user_hint_text = ["Username", "Имя пользователя"]
+        self.pass_hint_text = ["Password", "Пароль"]
+        self.login_button = ["Login", "Авторизоваться"]
+
+    def Switch_Language(self):
+        global cur
         #temp = self.ids.MainLabel.text
-        self.ids.MainLabel.text = "test"
-        '''
-        them vao dong cuoi ccung cua MDIconButton: root.press.en()
-        bo dong` root.manager.current = "login_ru"
-        '''
-class log_ru(Screen):
+        if self.cur == 0:
+            self.cur = 1
+            self.ids.lang_button.icon = "assets/en_language.png"
+        else:
+            self.cur = 0
+            self.ids.lang_button.icon = "assets/ru_language.png"
+
+        self.ids.MainLabel.text = self.main_label[self.cur]
+        self.ids.Username.hint_text = self.user_hint_text[self.cur]
+        self.ids.Password.hint_text = self.pass_hint_text[self.cur]
+        self.ids.Login_Button.text = self.login_button[self.cur]
+
+
+
+class Register(Screen):
     pass
 
 class View(MDApp):
@@ -31,10 +50,14 @@ class View(MDApp):
     def build(self): #build and load .kv file
         global screen_manager
         screen_manager = ScreenManager(transition=kivy.uix.screenmanager.WipeTransition())
+
         kv = Builder.load_file("login.kv")
-        kv = Builder.load_file("login_ru.kv")
-        screen_manager.add_widget(log_en(name="login_en"))
-        screen_manager.add_widget(log_ru(name="login_ru"))
+        screen_manager.add_widget(Login(name="login"))
+
+        screen_manager.add_widget(Register(name="register"))
+        #kv = Builder.load_file("login_ru.kv")
+        #screen_manager.add_widget(log_ru(name="login_ru"))
+
         return screen_manager
 
 
