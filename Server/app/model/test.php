@@ -6,5 +6,6 @@ require_once 'data.php';
 $temp = new env();
 $test = new SQL($temp->data);
 
-var_dump ($test->register('nhat','lam'));
+$res =  $test->login('admin','admin');
+print_r ($res);
 ?>
