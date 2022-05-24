@@ -1,16 +1,16 @@
-import sys 
-sys.path.append("..")
+from App.Data import config
+import sqlite3 as sql
+from pathlib import Path
 class Database(): 
-    """Class Data interact with the database (inster, delete, update,..)"""
+    """Class Data interact with the database (insert, delete, update,..)"""
     def __init__(self):
-        
-        import Data
-        import sqlite3 as sql
-        self.path = './../Data/'
+        baseDir = Path(__file__).resolve().parent.parent
+        self.path = baseDir /'Data'
         """The path to the directory containing the data"""
-        self.database = Data.config.database
+        self.database = config.database
         """Name of database"""
-        self.urlDatabase = self.path + self.database
+        self.urlDatabase = self.path / self.database
+        print(self.urlDatabase)
         """url of database"""
         self.sql = sql
         """sql is splite3"""
