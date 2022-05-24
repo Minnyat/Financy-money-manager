@@ -1,20 +1,75 @@
-### Note day du model duoc export ra va cac su dung.
+### Document for Database.
 ___
-**Install requests**
-```bash
-python -m pip install requests
-```
-**1: check login**
-```python
+**Example**
 
-tester = login() # login la class
-print(tester.verify('admin','admin'))
+1. getDate
+
+output:
+```
+['20220524', '20220523']
+year: 2022, month: 05, day: 24
+year: 2022, month: 05, day: 23
 
 ```
-**Cac ham trong Class login:**
 
-1. verify
-```python
-verify(username, password) # 
+2. getHistoryOnDate
+
+output
 ```
-return array gom 3 gia tri status, error, token. Token chi co khi dang nhap thanh cong.
+[
+    {
+        'id': 1, 
+        'type': 'test',
+        'value': 100, 
+        'datetime': '192926'
+    }, 
+    {
+        'id': 2, 
+        'type': 'test', 
+        'value': 100, 
+        'datetime': '192929'
+    }, 
+    {
+        'id': 3, 
+        'type': 'test', 
+        'value': 100, 
+        'datetime': '193430'
+    }
+]
+```
+use convert json to more intuitive or json library
+
+3. getHistoryAllDate
+
+output
+```
+{
+    "20220524": [
+        {
+            'id': 1, 
+            'type': 'test',
+            'value': 100, 
+            'datetime': '192926'
+        }, 
+        {
+            'id': 2, 
+            'type': 'test', 
+            'value': 100, 
+            'datetime': '192929'
+        }, 
+        {
+            'id': 3, 
+            'type': 'test', 
+            'value': 100, 
+            'datetime': '193430'
+        }
+    ]
+
+    "20220523":[
+
+    ]
+}
+```
+use convert json to more intuitive or json library
+
+See All on Document
