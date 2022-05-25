@@ -1,7 +1,7 @@
 from App.Data import config
 import sqlite3 as sql
 from pathlib import Path
-class Database(): 
+class MoneyDatabase(): 
     """Class Data interact with the database (insert, delete, update,..)"""
     def __init__(self):
         baseDir = Path(__file__).resolve().parent.parent
@@ -10,7 +10,6 @@ class Database():
         self.database = config.database
         """Name of database"""
         self.urlDatabase = self.path / self.database
-        print(self.urlDatabase)
         """url of database"""
         self.sql = sql
         """sql is splite3"""

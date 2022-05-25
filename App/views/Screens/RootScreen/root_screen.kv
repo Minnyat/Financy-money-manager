@@ -1,0 +1,23 @@
+#: kivy  1.11.1
+#: include 'App/views/Screens/HomeScreen/home_screen.kv'
+#: include 'App/views/Screens/InputScreen/input_screen.kv'
+#: import SweetAlert kivymd_extensions.sweetalert.SweetAlert
+
+<RootScreen>
+
+    MDBottomNavigation:
+
+        MDBottomNavigationItem:
+
+            name: "Home"
+            icon: "home-variant-outline"
+
+            HomeScreen:
+                id: Home
+
+        MDBottomNavigationItem:
+            name: "Input"
+            icon: "cash-plus"
+
+            InputScreen:
+                id: Input
