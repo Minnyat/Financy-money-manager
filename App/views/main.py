@@ -35,7 +35,7 @@ class BudgetAPP(MDApp):
             self.controller.saveMoney(self.cur_choice, amount)
             self.root.ids.Home.ids.cur_total.text = self.controller.getAllMoney()
             exec("self.root.ids.Home.ids." + self.cur_choice + ".text=self.controller.getMoneyByType(self.cur_choice)")
-        SweetAlert(color_button=get_color_from_hex("#3474B9"),font_style_text="H6").fire(text=error.text)
+        SweetAlert(color_button=get_color_from_hex("#3474B9"),font_style_text="H6").fire(text=error.text, type=error.type)
 
     
         
