@@ -26,6 +26,7 @@ class Error():
         if self.amount.isdigit() == False:
             return False
         return True
+
     def getType(self):
         error = notifications.Error(self.choice, self.amount)
         if self.choice == "":
