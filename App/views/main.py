@@ -56,23 +56,27 @@ class BudgetAPP(MDApp):
     def init_home(self):
         """Load the data of the home screen."""
 
+        # *** Nối label_id, label_text, money_text với database ***
         for i in range(8):
             self.root.ids.Home.ids.home_layout.add_widget(
                 HomeCard(
-                    label_id='id',
-                    label_text='type',
-                    money_text='money'
+                    label_id='id', # ID của transaction
+                    label_text='type', # type(tên) của transaction
+                    money_text='money' # Tổng tiền của mỗi transaction
                 )
             )
 
+        # *** nối "balc" với data là số dư còn lại ***
         self.root.ids.Home.add_widget(
             YourBudget(
+                balc='???',
                 md_bg_color=get_color_from_hex("#ABCED9")
             )
         )
 
     def on_start(self):
         """Show the data from history and home screen everytime run the application"""
+
         self.init_history()
         self.init_home()
 
@@ -84,10 +88,19 @@ class BudgetAPP(MDApp):
         if error.isTrue:
             self.controller.save_money(self.cur_choice, amount)
 
-            # Sửa lại đường dẫn data cho các thẻ transaction trong HomeScreen
+            # *** Sửa lại đường dẫn data cho các thẻ transaction trong HomeScreen ***
+            # *** Cập nhật lại số dư ***
+
+            # Update total spending
             self.root.ids.Home.ids.cur_total.text = self.controller.get_all_money()
+
+            # Update total of each transaction
             exec("self.root.ids.Home.ids." + self.cur_choice + ".text=self.controller.get_money_by_type(self.cur_choice)")
+
+            # Add recent spending to History
             self.root.ids.History.add_to_history()
+
+        # Notification about adding spending status
         SweetAlert(color_button=get_color_from_hex("#3474B9"),
                    font_style_text="H6").fire(text=error.text,
                                               type=error.type)

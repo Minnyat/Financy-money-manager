@@ -34,7 +34,6 @@ class YourBudget(MDCard):
 
     #Balance budget
     balc = StringProperty()
-    balc = '???'
 
 class HomeScreen(Screen):
     """Home screen, showing total spending, budget balance."""
@@ -75,9 +74,11 @@ class HomeScreen(Screen):
     def add_new_budget(self):
         """Get the budget number data just entered and display."""
 
+        # ***Thêm một hàm lưu lại số dư của tháng, nối data***
+
+        # New budget for this month
         new_budget = self.dialog.content_cls.ids.new_budget.text
         self.ids.cur_budget.text = new_budget+' ₽'
-        print(self.dialog.content_cls.ids.new_budget.text)
 
     def close_dialog(self, obj):
         """Close alert box"""
