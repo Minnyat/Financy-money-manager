@@ -1,11 +1,15 @@
 #: kivy  1.11.1
 #: include 'App/views/Screens/HomeScreen/home_screen.kv'
 #: include 'App/views/Screens/InputScreen/input_screen.kv'
+#: include 'App/views/Screens/HistoryScreen/history_screen.kv'
 #: import SweetAlert kivymd_extensions.sweetalert.SweetAlert
+#: import get_color_from_hex kivy.utils.get_color_from_hex
 
 <RootScreen>
 
     MDBottomNavigation:
+
+        text_color_active: get_color_from_hex("#8AC6D1")
 
         MDBottomNavigationItem:
 
@@ -21,3 +25,10 @@
 
             InputScreen:
                 id: Input
+
+        MDBottomNavigationItem:
+            name: "History"
+            icon: "history"
+
+            HistoryScreen:
+                id: History

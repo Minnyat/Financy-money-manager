@@ -2,26 +2,20 @@
 
 <HomeScreen>
 
-    id: Home
-
     MDFloatLayout:
+
+        #md_bg_color: get_color_from_hex("#EDEFF0")
 
         Image:
             source: "App/views/assets/images/avatar profile.png"
-            pos_hint: {'center_x': 0.20, 'center_y':0.90}
+            pos_hint: {'center_x': 0.20, 'center_y':0.9}
         Image:
             source: "App/views/assets/images/Menu.png"
             size: root.size
             size_hint: 1,1
             keep_ratio: False
-            pos_hint: {'center_x': 0.5, 'center_y':0.7}
-        MDLabel:
-            text: "Total"
-            font_size: 13
-            font_name: "App/views/assets/Fonts/Inter/static/Inter-Medium.ttf"
-            color: 1, 1, 1
-            halign: "center"
-            pos_hint: {'center_y':0.76}
+            pos_hint: {'center_x': 0.5, 'center_y':0.75}
+
         MDLabel:
             text: "Welcome back,"
             font_size: 14
@@ -33,110 +27,110 @@
             font_name: "App/views/assets/Fonts/Inter/static/Inter-Bold.ttf"
             pos_hint: {'center_x': 0.85, 'center_y':0.89}
 
+        MDLabel:
+            text: "Total spending:"
+            font_size: 13
+            font_name: "App/views/assets/Fonts/Inter/static/Inter-Medium.ttf"
+            color: 1, 1, 1
+            halign: "center"
+            pos_hint: {'center_x': 0.32, 'center_y':0.79}
 
         MDLabel:
             id: cur_total
-            text: root.controller.getAllMoney()
+            text: root.controller.get_all_money()
             font_size: 30
             font_name: "App/views/assets/Fonts/Inter/static/Inter-Bold.ttf"
             color: 1, 1, 1
             halign: "center"
-            pos_hint: {'center_y':0.70}
+            pos_hint: {'center_x': 0.32, 'center_y':0.76}
 
-
-        MDLabel:
-            text: "NETWORK :"
-            font_size: 15
-            font_name: "App/views/assets/Fonts/Inter/static/Inter-Medium.ttf"
-            pos_hint: {'center_x': 0.6, 'center_y':0.50}
-        MDLabel:
-            id: network
-            text: root.controller.getMoneyByType("network")
-            font_size: 15
-            font_name: "App/views/assets/Fonts/Inter/static/Inter-Medium.ttf"
-            pos_hint: {'center_x': 1.1, 'center_y':0.50}
+        MDRaisedButton:
+            elevation: 15
+            text: "NEW BUDGET"
+            font_name: "App/views/assets/Fonts/Inter/static/Inter-Bold.ttf"
+            font_size: 11
+            md_bg_color: get_color_from_hex("#BBDED6")
+            pos_hint: {'center_x': .798, 'center_y': .818}
+            on_release: root.show_alert_dialog()
 
         MDLabel:
-            text: "HOUSING :"
-            font_size: 15
+            text: 'YOUR BUDGET:'
             font_name: "App/views/assets/Fonts/Inter/static/Inter-Medium.ttf"
-            pos_hint: {'center_x': 0.6, 'center_y':0.47}
+            font_size: 15
+            pos_hint: {'center_x': .695, 'center_y': .7}
         MDLabel:
-            id: house
-            text: root.controller.getMoneyByType("house")
+            id: cur_budget
+            text: '0'
+            color: get_color_from_hex("#000000")
+            font_name: "App/views/assets/Fonts/Inter/static/Inter-Bold.ttf"
+            font_size: 15
+            halign: 'left'
+            pos_hint: {'center_x': 1.02, 'center_y': .7}
+
+    GridLayout:
+        id: home_layout
+        spacing: 4
+        cols: 1
+        padding: 10
+        size_hint_y: .4
+        pos_hint: {'center_y':.362}
+        height: self.minimum_height
+        row_default_height: 40
+        orientation: 'bt-lr'
+
+<HomeCard>:
+    id: home_card
+    elevation: 4
+    MDFloatLayout:
+        MDLabel:
+            id: root.label_id
+            text: root.label_text
+            font_size: 15
+            font_name: "App/views/assets/Fonts/Inter/static/Inter-Bold.ttf"
+            pos_hint: {'center_x': 0.6, 'center_y':0.53}
+        MDLabel:
+            id: money_text
+            #text: root.controller.get_money_by_type("network")
+            text: root.money_text
+            halign: "right"
             font_size: 15
             font_name: "App/views/assets/Fonts/Inter/static/Inter-Medium.ttf"
-            pos_hint: {'center_x': 1.1, 'center_y':0.47}
+            pos_hint: {'center_x': 0.36, 'center_y':0.53}
+        MDLabel:
+            text: '₽'
+            font_size: 13
+            color: get_color_from_hex("#8AC6D1")
+            pos_hint: {'center_x': 1.37, 'center_y':0.525}
+
+<Content>
+    id: content
+    orientation: 'vertical'
+    size_hint_y: None
+    height: "60dp"
+
+    MDTextField:
+        id: new_budget
+
+<YourBudget>:
+    elevation: 0
+    padding: 16
+    size_hint: None, None
+    size: "360dp", "70dp"
+    pos_hint: {'center_x': .5, 'center_y': .1}
+
+    MDRelativeLayout:
+        halign: 'center'
+        size: root.size
 
         MDLabel:
-            text: "TRANSPORTATION :"
-            font_size: 15
+            text: root.msg
+            font_size: 14
             font_name: "App/views/assets/Fonts/Inter/static/Inter-Medium.ttf"
-            pos_hint: {'center_x': 0.6, 'center_y':0.44}
-        MDLabel:
-            id: transportation
-            text: root.controller.getMoneyByType("transportation")
-            font_size: 15
-            font_name: "App/views/assets/Fonts/Inter/static/Inter-Medium.ttf"
-            pos_hint: {'center_x': 1.1, 'center_y':0.44}
 
         MDLabel:
-            text: "HEALTHCARE :"
-            font_size: 15
-            font_name: "App/views/assets/Fonts/Inter/static/Inter-Medium.ttf"
-            pos_hint: {'center_x': 0.6, 'center_y':0.41}
-        MDLabel:
-            id: health
-            text: root.controller.getMoneyByType("health")
-            font_size: 15
-            font_name: "App/views/assets/Fonts/Inter/static/Inter-Medium.ttf"
-            pos_hint: {'center_x': 1.1, 'center_y':0.41}
-
-        MDLabel:
-            text: "FOOD :"
-            font_size: 15
-            font_name: "App/views/assets/Fonts/Inter/static/Inter-Medium.ttf"
-            pos_hint: {'center_x': 0.6, 'center_y':0.38}
-        MDLabel:
-            id: food
-            text: root.controller.getMoneyByType("food")
-            font_size: 15
-            font_name: "App/views/assets/Fonts/Inter/static/Inter-Medium.ttf"
-            pos_hint: {'center_x': 1.1, 'center_y':0.38}
-
-        MDLabel:
-            text: "PET :"
-            font_size: 15
-            font_name: "App/views/assets/Fonts/Inter/static/Inter-Medium.ttf"
-            pos_hint: {'center_x': 0.6, 'center_y':0.35}
-        MDLabel:
-            id: pet
-            text: root.controller.getMoneyByType("pet")
-            font_size: 15
-            font_name: "App/views/assets/Fonts/Inter/static/Inter-Medium.ttf"
-            pos_hint: {'center_x': 1.1, 'center_y':0.35}
-
-        MDLabel:
-            text: "WORK :"
-            font_size: 15
-            font_name: "App/views/assets/Fonts/Inter/static/Inter-Medium.ttf"
-            pos_hint: {'center_x': 0.6, 'center_y':0.32}
-        MDLabel:
-            id: work
-            text: root.controller.getMoneyByType("work")
-            font_size: 15
-            font_name: "App/views/assets/Fonts/Inter/static/Inter-Medium.ttf"
-            pos_hint: {'center_x': 1.1, 'center_y':0.32}
-
-        MDLabel:
-            text: "SHOPPING :"
-            font_size: 15
-            font_name: "App/views/assets/Fonts/Inter/static/Inter-Medium.ttf"
-            pos_hint: {'center_x': 0.6, 'center_y':0.29}
-        MDLabel:
-            id: shopping
-            text: root.controller.getMoneyByType("shopping")
-            font_size: 15
-            font_name: "App/views/assets/Fonts/Inter/static/Inter-Medium.ttf"
-            pos_hint: {'center_x': 1.1, 'center_y':0.29}
-
+            id: balance
+            text: root.balc
+            font_size: 14
+            font_name: "App/views/assets/Fonts/Inter/static/Inter-Light.ttf"
+            halign: 'center'
+            pos_hint: {'center_x': .8}

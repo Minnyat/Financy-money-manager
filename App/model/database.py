@@ -1,6 +1,7 @@
 from App.Data import config
 import sqlite3 as sql
 from pathlib import Path
+
 class MoneyDatabase(): 
     """Class Data interact with the database (insert, delete, update,..)"""
     def __init__(self):
@@ -16,6 +17,7 @@ class MoneyDatabase():
         self.key = "A"
         """Char begin of Table"""
         self.template = ['id','type','value','datetime']
+
     def __createTableMoney(self, tablename): 
         conn = self.sql.connect(self.urlDatabase)
         req = f"""CREATE TABLE IF NOT EXISTS {tablename} (
@@ -27,6 +29,7 @@ class MoneyDatabase():
         """
         conn.execute(req)
         conn.close()
+
     def __insert(self, tablename,tags, money):
         import datetime as dt
 
@@ -67,6 +70,7 @@ class MoneyDatabase():
             res.append(temp) 
         conn.close()
         return res
+
     def getDate(self):
         '''
         Get dates exist in database
@@ -95,10 +99,6 @@ class MoneyDatabase():
         return res
 
 if __name__ == '__main__':
-    
     tt = Database()
-    #tt.insert("test",100)
-    #print(tt.getHistoryOnDate("20220524"))
-    print(tt.getHistoryAllDate())
-    #tt.testCreateTable("A20220523")
+
 
