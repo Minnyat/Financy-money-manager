@@ -12,7 +12,12 @@ from App.views.Screens.RootScreen.root_screen import RootScreen
 from App.controller.moneyController import Controller
 from App.controller.error import Error
 
+# Resize window
 Window.size = (360, 800)
+
+# Align the keyboard
+Window.keyboard_anim_args = {'d': .2, 't': 'in_out_expo'}
+Window.softinput_mode = "below_target"
 
 def load_kv_file():
     """Load the .kv file"""
@@ -49,9 +54,7 @@ class BudgetAPP(MDApp):
             )
 
 
-        self.root.ids.History.add_widget(
-            TopSearchBar()
-        )
+
 
     def init_home(self):
         """Load the data of the home screen."""
@@ -70,7 +73,7 @@ class BudgetAPP(MDApp):
         self.root.ids.Home.add_widget(
             YourBudget(
                 balc='???',
-                md_bg_color=get_color_from_hex("#ABCED9")
+                md_bg_color=get_color_from_hex("#FAE3D9")
             )
         )
 
