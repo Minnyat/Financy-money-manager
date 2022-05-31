@@ -8,6 +8,7 @@ from kivy.properties import StringProperty
 from kivy.utils import get_color_from_hex
 from App.views.Screens.HistoryScreen.history_screen import HistoryCard, TopSearchBar
 from App.views.Screens.HomeScreen.home_screen import HomeCard, YourBudget
+from App.views.Screens.InputScreen.input_screen import AddNumpad, InputField
 from App.views.Screens.RootScreen.root_screen import RootScreen
 from App.controller.moneyController import Controller
 from App.controller.error import Error
@@ -27,6 +28,9 @@ class BudgetAPP(MDApp):
     """The class used to initialize the application."""
 
     cur_choice = StringProperty("")
+
+    # Số tiền đang nhập vào
+    cur_amount = StringProperty()
 
     def __init__(self):
         super(BudgetAPP, self).__init__()
@@ -53,9 +57,6 @@ class BudgetAPP(MDApp):
                 )
             )
 
-
-
-
     def init_home(self):
         """Load the data of the home screen."""
 
@@ -77,11 +78,30 @@ class BudgetAPP(MDApp):
             )
         )
 
+    def init_input(self):
+        """Load the data of the input screen."""
+
+        self.input = InputField()
+        self.numpad = AddNumpad()
+        self.root.ids.Input.add_widget(self.input)
+        self.root.ids.Input.add_widget(self.numpad)
+        self.numpad.bind(numbers=self.numpad_pressed)
+
     def on_start(self):
         """Show the data from history and home screen everytime run the application"""
 
         self.init_history()
         self.init_home()
+        self.init_input()
+
+
+    def numpad_pressed(self, instance, value):
+        """Update the number pressed to input field."""
+
+        self.input.press_button(value)
+
+        # Cập nhật biến số tiền vừa nhập vào
+        self.cur_amount = value
 
     def add_amount(self, amount):
         """add the spending to total spending and transactions"""

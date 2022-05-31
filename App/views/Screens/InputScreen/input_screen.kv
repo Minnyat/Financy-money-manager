@@ -3,6 +3,7 @@
 
 <InputScreen>:
 
+
     MDLabel:
         text: "TRANSACTION TYPE: " + app.cur_choice
         font_size: 13
@@ -84,20 +85,30 @@
         theme_text_color: "Custom"
         text_color: get_color_from_hex("#3474B9")
         on_release:
-            app.add_amount(Amount.text)
+            print(app.cur_amount)
+            app.add_amount(app.cur_amount)
 
             # Call function from history_screen.py
             # Add label from to HistoryScreen
 
+<InputField>:
+    elevation: 0
+    size_hint: None, None
+    size: 360,60
+    pos_hint: {'center_y': .5}
 
-    MDTextField:
-        id: Amount
-        font_name: "App/views/assets/Fonts/Inter/static/Inter-Regular.ttf"
-        size_hint: .9, None
-        pos_hint: {"center_x": .5, "center_y": .51}
-        font_size: 18
-        icon_right: "currency-rub"
-        icon_right_color: [1,1,1,1]
-        line_color_normal: get_color_from_hex("#3474B9")
-        line_color_focus: 1, 1, 1, 1
+    md_bg_color: get_color_from_hex("#8AC6D1")
+
+    MDFloatLayout:
+
+        MDLabel:
+            id: input_txt
+            text: root.txt
+            font_size: 27
+            color: get_color_from_hex('#FFFFFF')
+            font_name: "App/views/assets/Fonts/Inter/static/Inter-Bold.ttf"
+            halign: 'center'
+            pos_hint: {'center_x': 0.5, 'center_y':0.55}
+
+
 
