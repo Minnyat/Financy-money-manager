@@ -58,13 +58,13 @@ class HomeScreen(Screen):
                     MDFlatButton(
                         text="CANCEL",
                         theme_text_color="Custom",
-                        text_color=get_color_from_hex("#3474B9"),
+                        text_color=get_color_from_hex("#8AC6D1"),
                         on_release=self.close_dialog
                     ),
                     MDFlatButton(
                         text="CONFIRM",
                         theme_text_color="Custom",
-                        text_color=get_color_from_hex("#3474B9"),
+                        text_color=get_color_from_hex("#8AC6D1"),
                         on_release=self.neat_dialog
                     ),
                 ],

@@ -128,5 +128,9 @@ class BudgetAPP(MDApp):
                    font_style_text="H6").fire(text=error.text,
                                               type=error.type)
 
+    def remove_widgets(self):
+
+        self.root.ids.History.ids.scroll_banner.clear_widgets()
+
 if __name__ == "__main__":
     BudgetAPP().run()

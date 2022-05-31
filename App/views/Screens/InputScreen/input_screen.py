@@ -14,9 +14,8 @@ class InputField(MDCard):
     def press_button(self, num):
         self.ids.input_txt.text = num
 
-
 class AddNumpad(GridLayout):
-    numbers = StringProperty()                            # <<<<<<<<<<<<<
+    numbers = StringProperty()
 
     def __init__(self, **kwargs):
         super(AddNumpad, self).__init__(**kwargs)
@@ -40,9 +39,10 @@ class AddNumpad(GridLayout):
         # Add button '.'
         btn = Button(
             text='.',
+            color=get_color_from_hex("#8AC6D1"),
             background_normal='',
-            font_size=24,
-            background_color=get_color_from_hex('#8AC6D1'),
+            font_size=50,
+            background_color=get_color_from_hex('#FAFAFA'),
         )
         btn.bind(on_press=self.callback)
         self.add_widget(btn)
@@ -57,11 +57,13 @@ class AddNumpad(GridLayout):
         btn.bind(on_press=self.callback)
         self.add_widget(btn)
 
+        # Add button 'Del'
         btn = Button(
-            text='CE',
+            text='Del',
+            color=get_color_from_hex("#8AC6D1"),
             background_normal='',
-            font_size=24,
-            background_color=get_color_from_hex('#8AC6D1'),
+            font_size=15,
+            background_color=get_color_from_hex('#FAFAFA'),
         )
         btn.bind(on_press=self.delete_last_num)
         self.add_widget(btn)

@@ -12,7 +12,6 @@
         ScrollView:
             id: scroll_banner
 
-
             GridLayout:
                 id: grid_banner
                 cols: 1
@@ -22,9 +21,6 @@
                 height: self.minimum_height
                 row_default_height: 80
                 orientation: 'bt-lr'
-
-
-
 
 <HistoryCard>
     padding: 10
@@ -58,25 +54,28 @@
             id: money
             font_name: "App/views/assets/Fonts/Inter/static/Inter-Medium.ttf"
             text: root.money_text
-            color: get_color_from_hex("#3474B9")
+            color: get_color_from_hex("#8AC6D1")
             halign: 'center'
             pos_hint: {'center_x': 0.82, 'center_y': 0.35}
             adaptive_size: True
 
 <TopSearchBar>:
-    elevation: 0
+    elevation: 5
     ripple_behavior: True
     padding: 16
     size_hint: None, None
     size: "360dp", "60dp"
     md_bg_color: get_color_from_hex("#f4dedc")
-    on_press: print(5)
+
     MDTextField:
+        id: txtf
         font_name: "App/views/assets/Fonts/Inter/static/Inter-Regular.ttf"
         size_hint: .9, None
-        pos_hint: {"center_x": .5, "center_y": .51}
+        pos_hint: {"center_x": .5, "center_y": .2}
         font_size: 18
-        icon_right: "currency-rub"
+        icon_right: "magnify"
         icon_right_color: [1,1,1,1]
-        line_color_normal: get_color_from_hex("#3474B9")
+        line_color_normal: get_color_from_hex("#f4dedc")
         line_color_focus: 1, 1, 1, 1
+        on_text_validate:
+            app.remove_widgets()
