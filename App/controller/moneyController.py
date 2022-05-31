@@ -1,3 +1,4 @@
+from logging.config import valid_ident
 from App.model.database import MoneyDatabase
 class Controller():
 
@@ -59,6 +60,28 @@ class Controller():
                 Data.append(self.convert_to_dict(date, item))
 
         return Data
+    
+    def get_total_value_of_each_transaction(self):
+        Data = {}
+        for item in self.get_data():
+            if item['type'] not in Data :
+                Data[item['type']] = 0
+            Data[item['type']] += item['value']
+        return Data
+        
+    def update_budget_value(self,value) :
+        #self.model.update_budget(value)
+        pass
+    
+    def get_budget_value(self) :
+       # return self.model.get_budget()
+       return '0'
+        
+    def get_remaining_budget(self) :
+        #return str(self.get_budget_value - int(self.get_all_money))
+        return '0'
+    
+    
 
 if __name__ == '__main__':
     test = Controller()
