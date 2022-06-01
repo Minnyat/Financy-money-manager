@@ -61,7 +61,7 @@
             pos_hint: {'center_x': .695, 'center_y': .7}
         MDLabel:
             id: cur_budget
-            text: '0'
+            text: str(root.controller.get_budget_value())
             color: get_color_from_hex("#000000")
             font_name: "App/views/assets/Fonts/Inter/static/Inter-Bold.ttf"
             font_size: 15

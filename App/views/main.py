@@ -60,20 +60,20 @@ class BudgetAPP(MDApp):
     def init_home(self):
         """Load the data of the home screen."""
 
-        # *** Nối label_id, label_text, money_text với database ***
-        for i in range(8):
+        Data = self.controller.get_total_value_of_each_transaction()
+        for type,value in Data.items():
             self.root.ids.Home.ids.home_layout.add_widget(
                 HomeCard(
-                    label_id='id', # ID của transaction
-                    label_text='type', # type(tên) của transaction
-                    money_text='money' # Tổng tiền của mỗi transaction
+                    label_id=type.lower(), 
+                    label_text=type, 
+                    money_text=str(value) 
                 )
             )
 
         # *** nối "balc" với data là số dư còn lại ***
         self.root.ids.Home.add_widget(
             YourBudget(
-                balc='???',
+                balc=self.controller.get_remaining_budget(),
                 md_bg_color=get_color_from_hex("#FAE3D9")
             )
         )
@@ -114,7 +114,7 @@ class BudgetAPP(MDApp):
             self.root.ids.Home.ids.cur_total.text = self.controller.get_all_money()
 
             # Update total of each transaction
-            exec("self.root.ids.Home.ids." + self.cur_choice + ".text=self.controller.get_money_by_type(self.cur_choice)")
+            #exec("self.root.ids.Home.ids." + self.cur_choice + ".text=self.controller.get_money_by_type(self.cur_choice)")
 
             # Add recent spending to History
             self.root.ids.History.add_to_history()

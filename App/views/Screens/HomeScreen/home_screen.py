@@ -75,14 +75,12 @@ class HomeScreen(Screen):
             )
         self.dialog.open()
 
-    def add_new_budget(self):
+    def add_new_budget(self,value = None):
         """Get the budget number data just entered and display."""
-
-        # ***Thêm một hàm lưu lại số dư của tháng, nối data***
-
-        # New budget for this month
+       
         new_budget = self.dialog.content_cls.ids.new_budget.text
-        self.ids.cur_budget.text = new_budget+' ₽'
+        self.controller.update_budget_value(int(new_budget))
+        self.ids.cur_budget.text = str(self.controller.get_budget_value())+' ₽'
 
     def close_dialog(self, obj):
         """Close alert box"""
