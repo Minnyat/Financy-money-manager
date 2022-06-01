@@ -8,7 +8,7 @@ from kivy.properties import StringProperty
 from kivy.utils import get_color_from_hex
 from App.views.Screens.HistoryScreen.history_screen import HistoryCard, TopSearchBar
 from App.views.Screens.HomeScreen.home_screen import HomeCard, YourBudget
-from App.views.Screens.InputScreen.input_screen import AddNumpad, InputField
+from App.views.Screens.InputScreen.input_screen import Numpad, InputField
 from App.views.Screens.RootScreen.root_screen import RootScreen
 from App.controller.moneyController import Controller
 from App.controller.error import Error
@@ -82,7 +82,7 @@ class BudgetAPP(MDApp):
         """Load the data of the input screen."""
 
         self.input = InputField()
-        self.numpad = AddNumpad()
+        self.numpad = Numpad()
         self.root.ids.Input.add_widget(self.input)
         self.root.ids.Input.add_widget(self.numpad)
         self.numpad.bind(numbers=self.numpad_pressed)
@@ -93,7 +93,6 @@ class BudgetAPP(MDApp):
         self.init_history()
         self.init_home()
         self.init_input()
-
 
     def numpad_pressed(self, instance, value):
         """Update the number pressed to input field."""
@@ -110,9 +109,6 @@ class BudgetAPP(MDApp):
 
         if error.isTrue:
             self.controller.save_money(self.cur_choice, amount)
-
-            # *** Sửa lại đường dẫn data cho các thẻ transaction trong HomeScreen ***
-            # *** Cập nhật lại số dư ***
 
             # Update total spending
             self.root.ids.Home.ids.cur_total.text = self.controller.get_all_money()

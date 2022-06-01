@@ -70,31 +70,17 @@
         on_press:
             app.cur_choice = "food"
 
-    Image:
-        source: "App/views/assets/images/Sum bar.png"
-        pos_hint: {"center_y": .52}
+    SaveButton:
 
-    MDIconButton:
-        id: Save
-        pos_hint: {"center_x": .9, "center_y": .952}
-        icon: "check-circle"
-        user_font_size: "30sp"
-        theme_text_color: "Custom"
-        text_color: get_color_from_hex("#3474B9")
+        # Call function from history_screen.py
+        # Add label from to HistoryScreen
         on_release:
             print(app.cur_amount)
             app.add_amount(app.cur_amount)
 
-            # Call function from history_screen.py
-            # Add label from to HistoryScreen
+<SaveButton>:
 
 <InputField>:
-    elevation: 0
-    size_hint: None, None
-    size: 360,60
-    pos_hint: {'center_y': .5}
-
-    md_bg_color: get_color_from_hex("#8AC6D1")
 
     MDFloatLayout:
 
@@ -106,6 +92,7 @@
             font_name: "App/views/assets/Fonts/Inter/static/Inter-Bold.ttf"
             halign: 'center'
             pos_hint: {'center_x': 0.5, 'center_y':0.55}
+
 
 
 

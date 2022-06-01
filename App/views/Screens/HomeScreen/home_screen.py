@@ -1,6 +1,6 @@
 from kivy.uix.boxlayout import BoxLayout
 from kivy.utils import get_color_from_hex
-from kivymd.uix.button import MDFlatButton
+from kivymd.uix.button import MDFlatButton, MDRaisedButton, MDRectangleFlatButton
 from kivymd.uix.card import MDCard
 from kivymd.uix.dialog import MDDialog
 from kivymd.uix.label import MDLabel
@@ -28,11 +28,11 @@ class HomeCard(MDCard):
 class YourBudget(MDCard):
     """Budget balance box"""
 
-    #message
+    # Message
     msg = StringProperty()
     msg = 'Your remaining monthly budget: '
 
-    #Balance budget
+    # Balance budget
     balc = StringProperty()
 
 class HomeScreen(Screen):
@@ -55,16 +55,20 @@ class HomeScreen(Screen):
                 type="custom",
                 content_cls=Content(),
                 buttons=[
-                    MDFlatButton(
+                    MDRaisedButton(
+                        elevation=7,
                         text="CANCEL",
                         theme_text_color="Custom",
-                        text_color=get_color_from_hex("#8AC6D1"),
+                        text_color=get_color_from_hex("#424242"),
+                        md_bg_color=get_color_from_hex("#FAE3D9"),
                         on_release=self.close_dialog
                     ),
-                    MDFlatButton(
+                    MDRaisedButton(
+                        elevation=7,
                         text="CONFIRM",
                         theme_text_color="Custom",
-                        text_color=get_color_from_hex("#8AC6D1"),
+                        text_color=get_color_from_hex("#FFFFFF"),
+                        md_bg_color=get_color_from_hex("#8AC6D1"),
                         on_release=self.neat_dialog
                     ),
                 ],

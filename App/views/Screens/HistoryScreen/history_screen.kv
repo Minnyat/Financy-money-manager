@@ -23,10 +23,7 @@
                 orientation: 'bt-lr'
 
 <HistoryCard>
-    padding: 10
-    height: 200
-    radius: 7
-    elevation: 1
+
     #ripple_behavior: True
 
     MDRelativeLayout:
@@ -60,18 +57,12 @@
             adaptive_size: True
 
 <TopSearchBar>:
-    elevation: 5
-    ripple_behavior: True
-    padding: 16
-    size_hint: None, None
-    size: "360dp", "60dp"
-    md_bg_color: get_color_from_hex("#f4dedc")
 
     MDTextField:
         id: txtf
         font_name: "App/views/assets/Fonts/Inter/static/Inter-Regular.ttf"
         size_hint: .9, None
-        pos_hint: {"center_x": .5, "center_y": .2}
+        pos_hint: {"center_x": .5, "center_y": .35}
         font_size: 18
         icon_right: "magnify"
         icon_right_color: [1,1,1,1]
