@@ -70,6 +70,16 @@ output
     ]
 }
 ```
+4: modify_user_information(budget = 100)
+
+5: get_user_information()
+```
+{
+    'name': '', 
+    'age': '', 
+    'avatar': '', 
+    'budget': 103
+}
+```
 use convert json to more intuitive or json library
 
-See All on [Document](./database.html)
