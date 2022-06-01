@@ -79,7 +79,7 @@ output
     'age': '', 
     'avatar': '', 
     'budget': 103
-    }
+}
 ```
 use convert json to more intuitive or json library
 
