@@ -80,18 +80,18 @@ class Controller():
     def get_remaining_budget(self) :
         return str(self.get_budget_value() - int(self.get_all_money()))
      
-    def get_data_base_tag(self,tag):
+    def get_data_base_tag(self,tag=None):
         
         data = self.model.get_history_all_date()
         dates = self.model.get_date()
+        
         Data = []
         for date in dates :
             for item in data[date]:
-                cur_type = item[type] 
-                if(cur_type[:len(tag)] != tag) :
+                cur_type = item['type'] 
+                if(tag and cur_type[0] != tag[0] ) :
                     continue 
                 Data.append(self.convert_to_dict(date, item))
-
         return Data
 
 if __name__ == '__main__':

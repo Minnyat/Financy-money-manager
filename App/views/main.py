@@ -57,6 +57,19 @@ class BudgetAPP(MDApp):
                 )
             )
 
+    def show_search_data(self,tag) :
+        
+        TEXT = self.controller.get_data_base_tag(tag)
+        for i in range(len(TEXT)):
+            self.root.ids.History.ids.grid_banner.add_widget(
+                HistoryCard(
+                    label_text=TEXT[i]['type'],
+                    date_text=TEXT[i]['date'],
+                    money_text=str(TEXT[i]['value'])+' ₽'
+                )
+            )
+
+        
     def init_home(self):
         """Load the data of the home screen."""
 

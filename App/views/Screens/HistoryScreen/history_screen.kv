@@ -73,7 +73,7 @@
             if self.focus == True: app.remove_widgets()
 
             # nếu ấn ra ngoài thì hiện lại tất cả widget
-            if self.focus == False: app.init_history()
+            if self.focus == False: app.show_search_data(txtf.text)
         on_text_validate:
             #nếu ấn enter thì sẽ hiện widget
-            app.init_history()
+            app.show_search_data(txtf.text)
