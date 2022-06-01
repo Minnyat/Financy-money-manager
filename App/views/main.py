@@ -129,8 +129,8 @@ class BudgetAPP(MDApp):
                                               type=error.type)
 
     def remove_widgets(self):
-
-        self.root.ids.History.ids.scroll_banner.clear_widgets()
+        """Remove all History cards"""
+        self.root.ids.History.ids.grid_banner.clear_widgets()
 
 if __name__ == "__main__":
     BudgetAPP().run()

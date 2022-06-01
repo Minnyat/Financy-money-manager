@@ -77,5 +77,6 @@
         icon_right_color: [1,1,1,1]
         line_color_normal: get_color_from_hex("#f4dedc")
         line_color_focus: 1, 1, 1, 1
-        on_text_validate:
-            app.remove_widgets()
+        on_focus:
+            if self.focus == True: app.remove_widgets()
+            if self.focus == False: app.init_history()
