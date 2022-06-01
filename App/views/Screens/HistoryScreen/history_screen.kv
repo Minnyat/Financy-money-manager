@@ -78,5 +78,11 @@
         line_color_normal: get_color_from_hex("#f4dedc")
         line_color_focus: 1, 1, 1, 1
         on_focus:
+            # Nếu nhấp vào ô tìm kiếm thì xóa hết widget
             if self.focus == True: app.remove_widgets()
+
+            # nếu ấn ra ngoài thì hiện lại tất cả widget
             if self.focus == False: app.init_history()
+        on_text_validate:
+            #nếu ấn enter thì sẽ hiện widget
+            app.init_history()
