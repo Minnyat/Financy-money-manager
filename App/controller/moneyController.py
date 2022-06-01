@@ -1,11 +1,11 @@
-from App.model.database import MoneyDatabase
+from App.model.database import Money_database
 class Controller():
 
     def __init__(self):
-        self.model = MoneyDatabase()
+        self.model = Money_database()
       
     def get_money_by_type(self, tags: str):
-        data = self.model.getHistoryAllDate()
+        data = self.model.get_history_all_date()
         dates = self.model.getDate()
         res = 0
         for date in dates:
@@ -16,7 +16,7 @@ class Controller():
         return str(res)
 
     def get_all_money(self):
-        data = self.model.getHistoryAllDate()
+        data = self.model.get_history_all_date()
         dates = self.model.getDate()
         res = 0
         for date in dates:
@@ -51,7 +51,7 @@ class Controller():
 
     def get_data(self):
 
-        data = self.model.getHistoryAllDate()
+        data = self.model.get_history_all_date()
         dates = self.model.getDate()
         Data = []
         for date in dates :
