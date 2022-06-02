@@ -79,29 +79,221 @@
         row_default_height: 40
         orientation: 'bt-lr'
 
+        MDCard:
+            elevation: 4
+            MDFloatLayout:
+                MDLabel:
+                    #id: root.label_id
+                    text: 'PET'
+                    font_size: 15
+                    font_name: "App/views/assets/Fonts/Inter/static/Inter-Bold.ttf"
+                    pos_hint: {'center_x': 0.6, 'center_y':0.53}
+                MDLabel:
+                #gia tien
+                    id: pet
+                    #text: root.controller.get_money_by_type("network")
+                    text: '0'
+                    halign: "right"
+                    font_size: 15
+                    font_name: "App/views/assets/Fonts/Inter/static/Inter-Medium.ttf"
+                    pos_hint: {'center_x': 0.36, 'center_y':0.53}
+                MDLabel:
+                    text: '₽'
+                    font_size: 13
+                    color: get_color_from_hex("#8AC6D1")
+                    pos_hint: {'center_x': 1.37, 'center_y':0.525}
+
+                MDRaisedButton:
+                    on_press:
+                        app.test()
+
+        MDCard:
+            elevation: 4
+            MDFloatLayout:
+                MDLabel:
+                    #id: root.label_id
+                    text: 'WORK'
+                    font_size: 15
+                    font_name: "App/views/assets/Fonts/Inter/static/Inter-Bold.ttf"
+                    pos_hint: {'center_x': 0.6, 'center_y':0.53}
+                MDLabel:
+                    id: work
+                    #text: root.controller.get_money_by_type("network")
+                    text: '0'
+                    halign: "right"
+                    font_size: 15
+                    font_name: "App/views/assets/Fonts/Inter/static/Inter-Medium.ttf"
+                    pos_hint: {'center_x': 0.36, 'center_y':0.53}
+                MDLabel:
+                    text: '₽'
+                    font_size: 13
+                    color: get_color_from_hex("#8AC6D1")
+                    pos_hint: {'center_x': 1.37, 'center_y':0.525}
+
+                MDRaisedButton:
+                    on_press:
+                        app.test()
+        MDCard:
+            elevation: 4
+            MDFloatLayout:
+                MDLabel:
+                    #id: root.label_id
+                    text: 'HOUSE'
+                    font_size: 15
+                    font_name: "App/views/assets/Fonts/Inter/static/Inter-Bold.ttf"
+                    pos_hint: {'center_x': 0.6, 'center_y':0.53}
+                MDLabel:
+                    id: house
+                    #text: root.controller.get_money_by_type("network")
+                    text: '0'
+                    halign: "right"
+                    font_size: 15
+                    font_name: "App/views/assets/Fonts/Inter/static/Inter-Medium.ttf"
+                    pos_hint: {'center_x': 0.36, 'center_y':0.53}
+                MDLabel:
+                    text: '₽'
+                    font_size: 13
+                    color: get_color_from_hex("#8AC6D1")
+                    pos_hint: {'center_x': 1.37, 'center_y':0.525}
+
+                MDRaisedButton:
+                    on_press:
+                        app.test()
+        MDCard:
+            elevation: 4
+            MDFloatLayout:
+                MDLabel:
+                    #id: root.label_id
+                    text: 'SHOPPING'
+                    font_size: 15
+                    font_name: "App/views/assets/Fonts/Inter/static/Inter-Bold.ttf"
+                    pos_hint: {'center_x': 0.6, 'center_y':0.53}
+                MDLabel:
+                    id: shopping
+                    #text: root.controller.get_money_by_type("network")
+                    text: '0'
+                    halign: "right"
+                    font_size: 15
+                    font_name: "App/views/assets/Fonts/Inter/static/Inter-Medium.ttf"
+                    pos_hint: {'center_x': 0.36, 'center_y':0.53}
+                MDLabel:
+                    text: '₽'
+                    font_size: 13
+                    color: get_color_from_hex("#8AC6D1")
+                    pos_hint: {'center_x': 1.37, 'center_y':0.525}
+
+                MDRaisedButton:
+                    on_press:
+                        app.test()
+        MDCard:
+            elevation: 4
+            MDFloatLayout:
+                MDLabel:
+                    #id: root.label_id
+                    text: 'FOOD'
+                    font_size: 15
+                    font_name: "App/views/assets/Fonts/Inter/static/Inter-Bold.ttf"
+                    pos_hint: {'center_x': 0.6, 'center_y':0.53}
+                MDLabel:
+                    id: food
+                    #text: root.controller.get_money_by_type("network")
+                    text: '0'
+                    halign: "right"
+                    font_size: 15
+                    font_name: "App/views/assets/Fonts/Inter/static/Inter-Medium.ttf"
+                    pos_hint: {'center_x': 0.36, 'center_y':0.53}
+                MDLabel:
+                    text: '₽'
+                    font_size: 13
+                    color: get_color_from_hex("#8AC6D1")
+                    pos_hint: {'center_x': 1.37, 'center_y':0.525}
+
+                MDRaisedButton:
+                    on_press:
+                        app.test()
+        MDCard:
+            elevation: 4
+            MDFloatLayout:
+                MDLabel:
+                    #id: root.label_id
+                    text: 'NETWORK'
+                    font_size: 15
+                    font_name: "App/views/assets/Fonts/Inter/static/Inter-Bold.ttf"
+                    pos_hint: {'center_x': 0.6, 'center_y':0.53}
+                MDLabel:
+                    id: network
+                    #text: root.controller.get_money_by_type("network")
+                    text: '0'
+                    halign: "right"
+                    font_size: 15
+                    font_name: "App/views/assets/Fonts/Inter/static/Inter-Medium.ttf"
+                    pos_hint: {'center_x': 0.36, 'center_y':0.53}
+                MDLabel:
+                    text: '₽'
+                    font_size: 13
+                    color: get_color_from_hex("#8AC6D1")
+                    pos_hint: {'center_x': 1.37, 'center_y':0.525}
+
+                MDRaisedButton:
+                    on_press:
+                        app.test()
+        MDCard:
+            elevation: 4
+            MDFloatLayout:
+                MDLabel:
+                    #id: root.label_id
+                    text: 'HEALTH'
+                    font_size: 15
+                    font_name: "App/views/assets/Fonts/Inter/static/Inter-Bold.ttf"
+                    pos_hint: {'center_x': 0.6, 'center_y':0.53}
+                MDLabel:
+                    id: health
+                    #text: root.controller.get_money_by_type("network")
+                    text: '0'
+                    halign: "right"
+                    font_size: 15
+                    font_name: "App/views/assets/Fonts/Inter/static/Inter-Medium.ttf"
+                    pos_hint: {'center_x': 0.36, 'center_y':0.53}
+                MDLabel:
+                    text: '₽'
+                    font_size: 13
+                    color: get_color_from_hex("#8AC6D1")
+                    pos_hint: {'center_x': 1.37, 'center_y':0.525}
+
+                MDRaisedButton:
+                    on_press:
+                        app.test()
+        MDCard:
+            elevation: 4
+            MDFloatLayout:
+                MDLabel:
+                    #id: root.label_id
+                    text: 'TRANSPORTATION'
+                    font_size: 15
+                    font_name: "App/views/assets/Fonts/Inter/static/Inter-Bold.ttf"
+                    pos_hint: {'center_x': 0.6, 'center_y':0.53}
+                MDLabel:
+                    id: transportation
+                    #text: root.controller.get_money_by_type("network")
+                    text: '0'
+                    halign: "right"
+                    font_size: 15
+                    font_name: "App/views/assets/Fonts/Inter/static/Inter-Medium.ttf"
+                    pos_hint: {'center_x': 0.36, 'center_y':0.53}
+                MDLabel:
+                    text: '₽'
+                    font_size: 13
+                    color: get_color_from_hex("#8AC6D1")
+                    pos_hint: {'center_x': 1.37, 'center_y':0.525}
+
+                MDRaisedButton:
+                    on_press:
+                        app.test()
+
+
+
+
 <HomeCard>:
-    id: home_card
-    elevation: 4
-    MDFloatLayout:
-        MDLabel:
-            id: root.label_id
-            text: root.label_text
-            font_size: 15
-            font_name: "App/views/assets/Fonts/Inter/static/Inter-Bold.ttf"
-            pos_hint: {'center_x': 0.6, 'center_y':0.53}
-        MDLabel:
-            id: money_text
-            #text: root.controller.get_money_by_type("network")
-            text: root.money_text
-            halign: "right"
-            font_size: 15
-            font_name: "App/views/assets/Fonts/Inter/static/Inter-Medium.ttf"
-            pos_hint: {'center_x': 0.36, 'center_y':0.53}
-        MDLabel:
-            text: '₽'
-            font_size: 13
-            color: get_color_from_hex("#8AC6D1")
-            pos_hint: {'center_x': 1.37, 'center_y':0.525}
 
 <Content>
     id: content

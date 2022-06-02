@@ -19,7 +19,7 @@ class Money_database():
         self.user = config.userTable
         self.template = ['id','type','value','datetime']
 
-    def __create_table_money(self, tablename): 
+    def __create_table_money(self, tablename):
         conn = self.sql.connect(self.urlDatabase)
         req = f"""CREATE TABLE IF NOT EXISTS {tablename} (
             id integer primary key autoincrement,
@@ -31,7 +31,7 @@ class Money_database():
         conn.execute(req)
         conn.close()
 
-    def __create_table_user(self): 
+    def __create_table_user(self):
         conn = self.sql.connect(self.urlDatabase)
         req = f"""CREATE TABLE IF NOT EXISTS {self.user} (
             id integer primary key autoincrement,
@@ -57,7 +57,7 @@ class Money_database():
         params['avatar'] = kwargs['avatar'] if 'avatar' in kwargs else None
         params['budget'] = kwargs['budget'] if 'budget' in kwargs else 0
         nowData = self.get_user_information()
-        if 'name' not in nowData:
+        if nowData['name'] is None:
             req = f"""INSERT INTO {self.user} VALUES (NULL,?,?,?,?);"""
             conn.execute(req, ('','','',params['budget']))
         else:
@@ -79,11 +79,10 @@ class Money_database():
         temp = conn.execute(req)
         userInfo = temp.fetchone()
         res = {}
-        res['name'] = 'cc'
-        res ['name'] = userInfo[1] if userInfo is not None else None
+        res['name'] = userInfo[1] if userInfo is not None else None
         res['age'] = userInfo[2] if userInfo is not None else None
         res['avatar'] = userInfo[3] if userInfo is not None else None
-        res['budget'] = userInfo[4] if userInfo is not None else None
+        res['budget'] = userInfo[4] if userInfo is not None else 0
         
         conn.close()
         return res
@@ -159,7 +158,7 @@ class Money_database():
 
 if __name__ == '__main__':
     tt = Money_database()
-    #tt.modify_user_information(budget = 100)
-    print(tt.get_user_information())
+
+
 
 

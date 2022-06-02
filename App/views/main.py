@@ -74,16 +74,10 @@ class BudgetAPP(MDApp):
         """Load the data of the home screen."""
 
         Data = self.controller.get_total_value_of_each_transaction()
-        for type,value in Data.items():
-            self.root.ids.Home.ids.home_layout.add_widget(
-                HomeCard(
-                    label_id=type.lower(), 
-                    label_text=type, 
-                    money_text=str(value) 
-                )
-            )
 
-        # *** nối "balc" với data là số dư còn lại ***
+        for type, value in Data.items():
+            exec("self.root.ids.Home.ids." + type.lower() + ".text=str(value)")
+
         self.root.ids.Home.add_widget(
             YourBudget(
                 balc=self.controller.get_remaining_budget(),
@@ -126,8 +120,11 @@ class BudgetAPP(MDApp):
             # Update total spending
             self.root.ids.Home.ids.cur_total.text = self.controller.get_all_money()
 
+            self.root.ids.Home.ids.balc = self.controller.get_remaining_budget()
+            print(self.controller.get_remaining_budget())
             # Update total of each transaction
-            #exec("self.root.ids.Home.ids." + self.cur_choice + ".text=self.controller.get_money_by_type(self.cur_choice)")
+            #self.root.ids.Home.ids.home_layout.
+            #exec("self.root.ids.Home.ids.home_layout.ids" + self.cur_choice + ".text=self.controller.get_money_by_type(self.cur_choice)")
 
             # Add recent spending to History
             self.root.ids.History.add_to_history()
@@ -140,6 +137,9 @@ class BudgetAPP(MDApp):
     def remove_widgets(self):
         """Remove all History cards"""
         self.root.ids.History.ids.grid_banner.clear_widgets()
+
+    def test(self):
+        print(self.root.ids)
 
 if __name__ == "__main__":
     BudgetAPP().run()

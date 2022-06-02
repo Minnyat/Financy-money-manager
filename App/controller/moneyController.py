@@ -1,4 +1,5 @@
 from App.model.database import Money_database
+
 class Controller():
 
     def __init__(self):
@@ -14,6 +15,14 @@ class Controller():
                     res += item['value']
 
         return str(res)
+
+    def almost_the_same(self,tag1,tag2):
+        tag1 = tag1.lower()
+        tag2 = tag2.lower()
+        for i in range(min(len(tag1),len(tag2))):
+            if(tag1[i]!=tag2[i]) :
+                return False
+        return True
 
     def get_all_money(self):
         data = self.model.get_history_all_date()
@@ -71,10 +80,10 @@ class Controller():
     def update_budget_value(self,value) :
         self.model.modify_user_information(budget = value)
         print(self.model.get_user_information()['budget'])
-       
     
     def get_budget_value(self) :
-        return self.model.get_user_information()['budget']
+        value = self.model.get_user_information()['budget']
+        return value
 
         
     def get_remaining_budget(self) :
@@ -89,12 +98,12 @@ class Controller():
         for date in dates :
             for item in data[date]:
                 cur_type = item['type'] 
-                if(tag and cur_type[0] != tag[0] ) :
+                if(tag and self.almost_the_same(cur_type,tag) == False) :
                     continue 
                 Data.append(self.convert_to_dict(date, item))
         return Data
 
 if __name__ == '__main__':
     test = Controller()
-    test.update_budget_value(budget=1000)
+    test.update_budget_value(0)
     

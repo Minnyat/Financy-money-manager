@@ -25,6 +25,8 @@ class HomeCard(MDCard):
     #Transaction id
     label_id = StringProperty()
 
+    money_id = StringProperty()
+
 class YourBudget(MDCard):
     """Budget balance box"""
 
