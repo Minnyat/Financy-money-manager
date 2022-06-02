@@ -78,13 +78,15 @@ class BudgetAPP(MDApp):
         for type, value in Data.items():
             exec("self.root.ids.Home.ids." + type.lower() + ".text=str(value)")
 
+        '''
         self.root.ids.Home.add_widget(
             YourBudget(
                 balc=self.controller.get_remaining_budget(),
                 md_bg_color=get_color_from_hex("#FAE3D9")
             )
         )
-
+        '''
+        
     def init_input(self):
         """Load the data of the input screen."""
 
@@ -105,8 +107,7 @@ class BudgetAPP(MDApp):
         """Update the number pressed to input field."""
 
         self.input.press_button(value)
-
-        # Cập nhật biến số tiền vừa nhập vào
+        
         self.cur_amount = value
 
     def add_amount(self, amount):
@@ -119,13 +120,12 @@ class BudgetAPP(MDApp):
 
             # Update total spending
             self.root.ids.Home.ids.cur_total.text = self.controller.get_all_money()
-
-            self.root.ids.Home.ids.balc = self.controller.get_remaining_budget()
-            print(self.controller.get_remaining_budget())
+           
+            self.root.ids.Home.ids.remaining_budget.text =  str(self.controller.get_remaining_budget())
+            
             # Update total of each transaction
-            #self.root.ids.Home.ids.home_layout.
-            #exec("self.root.ids.Home.ids.home_layout.ids" + self.cur_choice + ".text=self.controller.get_money_by_type(self.cur_choice)")
-
+            exec("self.root.ids.Home.ids." + self.cur_choice + ".text=self.controller.get_money_by_type(self.cur_choice)")
+            
             # Add recent spending to History
             self.root.ids.History.add_to_history()
 

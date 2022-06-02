@@ -1,0 +1,2 @@
+
+        for date in dates :

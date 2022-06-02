@@ -83,7 +83,8 @@ class HomeScreen(Screen):
         new_budget = self.dialog.content_cls.ids.new_budget.text
         self.controller.update_budget_value(int(new_budget))
         self.ids.cur_budget.text = str(self.controller.get_budget_value())+' ₽'
-
+        self.ids.remaining_budget.text = str(self.controller.get_remaining_budget())
+        
     def close_dialog(self, obj):
         """Close alert box"""
 

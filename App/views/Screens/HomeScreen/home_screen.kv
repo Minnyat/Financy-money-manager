@@ -9,13 +9,15 @@
         Image:
             source: "App/views/assets/images/avatar profile.png"
             pos_hint: {'center_x': 0.20, 'center_y':0.9}
+
+
         Image:
             source: "App/views/assets/images/Menu.png"
             size: root.size
             size_hint: 1,1
             keep_ratio: False
             pos_hint: {'center_x': 0.5, 'center_y':0.75}
-
+        
         MDLabel:
             text: "Welcome back,"
             font_size: 14
@@ -67,6 +69,24 @@
             font_size: 15
             halign: 'left'
             pos_hint: {'center_x': 1.02, 'center_y': .7}
+
+        MDLabel:
+            text: 'Your remaining monthly budget: '
+            color: get_color_from_hex("#000000")
+            font_name: "App/views/assets/Fonts/Inter/static/Inter-Bold.ttf"
+            font_size: 13
+            halign: 'left'
+            pos_hint: {'center_x': .570, 'center_y': .1}
+
+        MDLabel:
+            id : remaining_budget
+            text: str(root.controller.get_remaining_budget())
+            color: get_color_from_hex("#000000")
+            font_name: "App/views/assets/Fonts/Inter/static/Inter-Bold.ttf"
+            font_size: 13
+            halign: 'left'
+            pos_hint: {'center_x': 1.2, 'center_y': .1}
+
 
     GridLayout:
         id: home_layout
@@ -285,12 +305,15 @@
                     font_size: 13
                     color: get_color_from_hex("#8AC6D1")
                     pos_hint: {'center_x': 1.37, 'center_y':0.525}
+        
+
 
                 MDRaisedButton:
                     on_press:
                         app.test()
 
-
+                        
+    MDFloatLayout:
 
 
 <HomeCard>:
@@ -305,6 +328,7 @@
         id: new_budget
 
 <YourBudget>:
+    id : budget
     elevation: 0
     padding: 16
     size_hint: None, None
