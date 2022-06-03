@@ -71,9 +71,20 @@ class Controller():
 
     def get_data(self):
         """Get all data about the amount entered"""
-        
+        import datetime as dt
+        now = dt.datetime.now()
+        date_befor = now + dt.timedelta(days = -30)
+
+        dates = []
+        min_date = self.model.get_date()[0]
+        print(date_befor)
         data = self.model.get_history_all_date()
-        dates = self.model.get_date()
+        while date_befor <= now:
+            if date_befor.strftime("%Y%m%d") >= min_date:
+                print(date_befor.strftime("%Y%m%d"))
+                dates.append(date_befor.strftime("%Y%m%d"))
+            date_befor = date_befor + dt.timedelta(days = 1)
+
         Data = []
         for date in dates:
             for item in data[date]:
@@ -120,7 +131,6 @@ class Controller():
                     continue
                 Data.append(self.convert_to_dict(date, item))
         return Data
-
 
 if __name__ == '__main__':
     test = Controller()

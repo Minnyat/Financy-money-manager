@@ -36,6 +36,13 @@
             color: 1, 1, 1
             halign: "center"
             pos_hint: {'center_x': 0.32, 'center_y':0.79}
+        MDLabel:
+            text: "for this month"
+            font_size: 13
+            font_name: "App/views/assets/Fonts/Inter/static/Inter-Medium.ttf"
+            color: 1, 1, 1
+            halign: "center"
+            pos_hint: {'center_x': 0.315, 'center_y':0.73}
 
         MDLabel:
             id: cur_total
@@ -43,8 +50,8 @@
             font_size: 30
             font_name: "App/views/assets/Fonts/Inter/static/Inter-Bold.ttf"
             color: 1, 1, 1
-            halign: "center"
-            pos_hint: {'center_x': 0.32, 'center_y':0.76}
+            halign: "left"
+            pos_hint: {'center_x': 0.69, 'center_y':0.76}
 
         MDRaisedButton:
             elevation: 15
@@ -73,7 +80,7 @@
         MDLabel:
             text: 'Your remaining monthly budget: '
             color: get_color_from_hex("#000000")
-            font_name: "App/views/assets/Fonts/Inter/static/Inter-Bold.ttf"
+            font_name: "App/views/assets/Fonts/Inter/static/Inter-Medium.ttf"
             font_size: 13
             halign: 'left'
             pos_hint: {'center_x': .570, 'center_y': .1}
@@ -123,9 +130,6 @@
                     color: get_color_from_hex("#8AC6D1")
                     pos_hint: {'center_x': 1.37, 'center_y':0.525}
 
-                MDRaisedButton:
-                    on_press:
-                        app.test()
 
         MDCard:
             elevation: 4
@@ -150,9 +154,6 @@
                     color: get_color_from_hex("#8AC6D1")
                     pos_hint: {'center_x': 1.37, 'center_y':0.525}
 
-                MDRaisedButton:
-                    on_press:
-                        app.test()
         MDCard:
             elevation: 4
             MDFloatLayout:
@@ -176,9 +177,7 @@
                     color: get_color_from_hex("#8AC6D1")
                     pos_hint: {'center_x': 1.37, 'center_y':0.525}
 
-                MDRaisedButton:
-                    on_press:
-                        app.test()
+
         MDCard:
             elevation: 4
             MDFloatLayout:
@@ -202,9 +201,6 @@
                     color: get_color_from_hex("#8AC6D1")
                     pos_hint: {'center_x': 1.37, 'center_y':0.525}
 
-                MDRaisedButton:
-                    on_press:
-                        app.test()
         MDCard:
             elevation: 4
             MDFloatLayout:
@@ -228,9 +224,6 @@
                     color: get_color_from_hex("#8AC6D1")
                     pos_hint: {'center_x': 1.37, 'center_y':0.525}
 
-                MDRaisedButton:
-                    on_press:
-                        app.test()
         MDCard:
             elevation: 4
             MDFloatLayout:
@@ -254,9 +247,7 @@
                     color: get_color_from_hex("#8AC6D1")
                     pos_hint: {'center_x': 1.37, 'center_y':0.525}
 
-                MDRaisedButton:
-                    on_press:
-                        app.test()
+
         MDCard:
             elevation: 4
             MDFloatLayout:
@@ -280,9 +271,6 @@
                     color: get_color_from_hex("#8AC6D1")
                     pos_hint: {'center_x': 1.37, 'center_y':0.525}
 
-                MDRaisedButton:
-                    on_press:
-                        app.test()
         MDCard:
             elevation: 4
             MDFloatLayout:
@@ -305,15 +293,6 @@
                     font_size: 13
                     color: get_color_from_hex("#8AC6D1")
                     pos_hint: {'center_x': 1.37, 'center_y':0.525}
-        
-
-
-                MDRaisedButton:
-                    on_press:
-                        app.test()
-
-                        
-    MDFloatLayout:
 
 
 <HomeCard>:

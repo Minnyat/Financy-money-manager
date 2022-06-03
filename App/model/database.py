@@ -47,6 +47,7 @@ class Money_database():
     def modify_user_information(self ,**kwargs):
         """
         Modify user information
+
         @arg kwargs: dict{'name':'Nhat', 'age':'21', 'avatar':'nhat.jpg', 'budget':100}
         """
         self.__create_table_user()
@@ -71,6 +72,7 @@ class Money_database():
     def get_user_information(self):
         """
         Get user information
+
         @return: dict{'name':'Nhat', 'age':'21', 'avatar':'nhat.jpg', 'budget':100}
         """
         conn = self.sql.connect(self.urlDatabase)
@@ -103,6 +105,7 @@ class Money_database():
 
     def insert(self,tags:str, money:int):
         """Insert a new money
+
         @arg money: The number money insert to database
         @arg tags: The type of money
         """
@@ -113,6 +116,7 @@ class Money_database():
     def get_history_on_date(self,date):
         """
         Get history of a date
+
         @arg date: The date to get history
         @return: List of history
         """
@@ -132,6 +136,7 @@ class Money_database():
     def get_date(self):
         '''
         Get dates exist in database
+
         @return: List of date
         '''
         conn = self.sql.connect(self.urlDatabase)
@@ -148,7 +153,8 @@ class Money_database():
     def get_history_all_date(self):
         """
         Get history of all date
-        @return: dict ['<Date>']: array[dict{id, type, value, datetime}]
+
+        return: dict ['<Date>']: array[dict{id, type, value, datetime}]
         """
         dates = self.get_date()
         res = {}
@@ -158,7 +164,3 @@ class Money_database():
 
 if __name__ == '__main__':
     tt = Money_database()
-
-
-
-

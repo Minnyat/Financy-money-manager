@@ -1,14 +1,15 @@
 from kivy.uix.gridlayout import GridLayout
 from kivymd.uix.card import MDCard
-from kivymd.uix.label import MDLabel
-from kivymd.uix.screen import MDScreen
 from kivy.uix.button import Button
-from kivy.uix.screenmanager import ScreenManager, Screen
+from kivy.uix.screenmanager import Screen
 from kivy.properties import StringProperty, ObjectProperty
 from kivy.utils import get_color_from_hex
-from App.views.Screens.HistoryScreen.history_screen import HistoryScreen
 
 class InputField(MDCard):
+    """Text field showing the entered number.
+    The default value of the text field is `0`
+    """
+
     txt = StringProperty()
     txt = '0'
 
@@ -20,9 +21,14 @@ class InputField(MDCard):
         self.size = (360,60)
 
     def press_button(self, num):
+        """Update number pressed to text field."""
+
         self.ids.input_txt.text = num
 
 class Numpad(GridLayout):
+    """Create a numpad"""
+
+    # The current sequence of numbers being entered.
     numbers = StringProperty()
 
     def __init__(self, **kwargs):
@@ -77,14 +83,18 @@ class Numpad(GridLayout):
         self.add_widget(btn)
 
     def callback(self, instance):
+        """Add the last number entered to the sequence."""
+
         self.numbers += instance.text
-        print(self.numbers)
 
     def delete_last_num(self, instance):
+        """Delete the last entered number."""
+
         self.numbers = self.numbers[:-1]
-        print(self.numbers)
 
 class SaveButton(Button):
+    """A button to save the entered spending."""
+
     def __init__(self, **kwargs):
         super(SaveButton, self).__init__(**kwargs)
         self.size_hint = (None, None)
@@ -98,7 +108,7 @@ class SaveButton(Button):
         self.background_normal = ''
         self.background_color = get_color_from_hex('#BBDED6')
 
-class InputScreen(MDScreen):
+class InputScreen(Screen):
     """The screen to enter the recently transacted data."""
 
     pass

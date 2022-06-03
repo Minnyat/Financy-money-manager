@@ -3,14 +3,12 @@ from kivy.utils import get_color_from_hex
 from kivymd.uix.button import MDFlatButton, MDRaisedButton, MDRectangleFlatButton
 from kivymd.uix.card import MDCard
 from kivymd.uix.dialog import MDDialog
-from kivymd.uix.label import MDLabel
-from kivymd.uix.screen import MDScreen
 from kivy.uix.screenmanager import ScreenManager, Screen
 from kivy.properties import StringProperty
 from App.controller.moneyController import Controller
 
 class Content(BoxLayout):
-    """Dialog box"""
+    """Content in the dialog box."""
     pass
 
 class HomeCard(MDCard):
@@ -23,14 +21,12 @@ class HomeCard(MDCard):
     money_text = StringProperty()
 
     #Transaction id
-    label_id = StringProperty()
-
     money_id = StringProperty()
 
 class YourBudget(MDCard):
     """Budget balance box"""
 
-    # Message
+    # Text message
     msg = StringProperty()
     msg = 'Your remaining monthly budget: '
 
@@ -47,7 +43,8 @@ class HomeScreen(Screen):
         self.controller = Controller()
 
     def show_alert_dialog(self):
-        """The dialog box appears each time a new budget number for the month is entered."""
+        """The dialog box appears each time a new budget
+         number for the month is entered."""
 
         if not self.dialog:
             self.dialog = MDDialog(
@@ -77,21 +74,21 @@ class HomeScreen(Screen):
             )
         self.dialog.open()
 
-    def add_new_budget(self,value = None):
-        """Get the budget number data just entered and display."""
-       
+    def add_new_budget(self, value=None):
+        """Get the budget number data just entered (`value`) and display."""
+
         new_budget = self.dialog.content_cls.ids.new_budget.text
         self.controller.update_budget_value(int(new_budget))
         self.ids.cur_budget.text = str(self.controller.get_budget_value())+' ₽'
         self.ids.remaining_budget.text = str(self.controller.get_remaining_budget())
-        
+
     def close_dialog(self, obj):
-        """Close alert box"""
+        """Close alert box without doing anything."""
 
         self.dialog.dismiss()
 
     def neat_dialog(self, obj):
-        """Confirm budget and close alert box"""
+        """Confirm budget and close alert box."""
 
         self.add_new_budget()
         self.dialog.dismiss()

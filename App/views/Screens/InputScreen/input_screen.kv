@@ -7,7 +7,7 @@
         text: "TRANSACTION TYPE: " + app.cur_choice
         font_size: 13
         font_name: "App/views/assets/Fonts/Inter/static/Inter-Bold.ttf"
-        pos_hint: {'center_x': 0.65, 'center_y': 0.92}
+        pos_hint: {'center_x': 0.65, 'center_y': 0.9}
 
     MDIconButton:
         icon: "access-point"
@@ -75,7 +75,6 @@
         # Call function from history_screen.py
         # Add label from to HistoryScreen
         on_release:
-            print(app.cur_amount)
             app.add_amount(app.cur_amount)
 
 <SaveButton>:

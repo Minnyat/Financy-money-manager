@@ -1,7 +1,5 @@
 from kivy.utils import get_color_from_hex
 from kivymd.uix.card import MDCard
-from kivymd.uix.label import MDLabel
-from kivymd.uix.screen import MDScreen
 from kivy.uix.screenmanager import ScreenManager, Screen
 from kivy.properties import StringProperty, ObjectProperty
 from App.controller.moneyController import Controller
@@ -15,7 +13,7 @@ class TopSearchBar(MDCard):
         self.ripple_behavior = True
         self.size_hint = (None, None)
         self.size = ("360dp", "60dp")
-        self.md_bg_color = get_color_from_hex("#f4dedc")
+        self.md_bg_color = get_color_from_hex("#BBDED6")
 
 class HistoryCard(MDCard):
     """Spending Cards"""
