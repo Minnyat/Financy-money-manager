@@ -10,4 +10,5 @@ Prerequisites
 
 Run: 
 `python -m App`
-[Documentation of project](https://minhnhatcoder.github.io/Financy---money-manager/App/html/)
+
+[Documentation of project](https://minhnhatcoder.github.io/Financy---money-manager/App/html/App/)
