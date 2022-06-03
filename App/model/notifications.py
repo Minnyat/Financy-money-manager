@@ -1,19 +1,22 @@
-from App.Data.notifications import error,type
+from App.Data.notifications import error, type
 
 class Error():
-    def __init__(self, choice , amount):
+    """notification to show on screen."""
+    def __init__(self, choice, amount):
         self.data = error
+        """error to show on sreen"""
         self.typeList = type
+        """type of error"""
 
-    def text(self,smg:str):
-        if smg in self.data:
-            return self.data[smg]
+    def text(self, msg: str):
+        if msg in self.data:
+            return self.data[msg]
         else:
             self.data['None']
 
-    def type(self,smg:str):
-        if smg in self.typeList:
-            return self.typeList[smg]
+    def type(self, msg: str):
+        if msg in self.typeList:
+            return self.typeList[msg]
         else:
             self.typeList['None']
 

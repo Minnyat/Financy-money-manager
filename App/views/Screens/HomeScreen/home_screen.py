@@ -1,10 +1,13 @@
 from kivy.uix.boxlayout import BoxLayout
 from kivy.utils import get_color_from_hex
-from kivymd.uix.button import MDFlatButton, MDRaisedButton, MDRectangleFlatButton
+from kivymd.uix.button import MDRaisedButton
 from kivymd.uix.card import MDCard
 from kivymd.uix.dialog import MDDialog
-from kivy.uix.screenmanager import ScreenManager, Screen
+from kivy.uix.screenmanager import Screen
 from kivy.properties import StringProperty
+from kivymd_extensions.sweetalert import SweetAlert
+from App.controller.error import Error
+
 from App.controller.moneyController import Controller
 
 class Content(BoxLayout):
@@ -75,12 +78,19 @@ class HomeScreen(Screen):
         self.dialog.open()
 
     def add_new_budget(self, value=None):
-        """Get the budget number data just entered (`value`) and display."""
+        """Get the budget number data just entered and display."""
 
         new_budget = self.dialog.content_cls.ids.new_budget.text
-        self.controller.update_budget_value(int(new_budget))
-        self.ids.cur_budget.text = str(self.controller.get_budget_value())+' ₽'
-        self.ids.remaining_budget.text = str(self.controller.get_remaining_budget())
+        error = Error('budget', new_budget)
+
+        if error.is_true:
+            self.controller.update_budget_value(float(new_budget))
+            self.ids.cur_budget.text = str(self.controller.get_budget_value()) + ' ₽'
+            self.ids.remaining_budget.text = str(self.controller.get_remaining_budget())
+
+        SweetAlert(color_button=get_color_from_hex("#3474B9"),
+                   font_style_text="H6").fire(text=error.text,
+                                              type=error.type)
 
     def close_dialog(self, obj):
         """Close alert box without doing anything."""

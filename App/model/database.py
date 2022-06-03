@@ -3,7 +3,8 @@ import sqlite3 as sql
 from pathlib import Path
 
 class Money_database(): 
-    """Class Data interact with the database (insert, delete, update,..)"""
+    """Class Data interact with the database (insert, delete, update,..)."""
+
     def __init__(self):
         baseDir = Path(__file__).resolve().parent.parent
         self.path = baseDir /'Data'
@@ -24,7 +25,7 @@ class Money_database():
         req = f"""CREATE TABLE IF NOT EXISTS {tablename} (
             id integer primary key autoincrement,
             type TEXT NOT NULL,
-            value INT NOT NULL,
+            value REAL NOT NULL,
             datetime TEXT NOT NULL 
         );
         """
@@ -38,7 +39,7 @@ class Money_database():
             name TEXT ,
             age TEXT,
             avatar TEXT,
-            budget INT
+            budget REAL
         );
         """
         conn.execute(req)
@@ -46,9 +47,10 @@ class Money_database():
 
     def modify_user_information(self ,**kwargs):
         """
-        Modify user information
+        Modify user information.
 
-        @arg kwargs: dict{'name':'Nhat', 'age':'21', 'avatar':'nhat.jpg', 'budget':100}
+        Args:
+            kwargs: dict{'name':'name of user', 'age':'21', 'avatar':'nhat.jpg', 'budget':100}
         """
         self.__create_table_user()
         conn = self.sql.connect(self.urlDatabase)
@@ -71,9 +73,10 @@ class Money_database():
 
     def get_user_information(self):
         """
-        Get user information
+        Get user information.
 
-        @return: dict{'name':'Nhat', 'age':'21', 'avatar':'nhat.jpg', 'budget':100}
+        Returns:
+            Information of user: dict{'name':'Nhat', 'age':'21', 'avatar':'nhat.jpg', 'budget':100}
         """
         conn = self.sql.connect(self.urlDatabase)
         self.__create_table_user()
@@ -103,22 +106,26 @@ class Money_database():
         conn.commit()
         conn.close()
 
-    def insert(self,tags:str, money:int):
-        """Insert a new money
+    def insert(self, tags:str, money:float):
+        """Insert a new money.
 
-        @arg money: The number money insert to database
-        @arg tags: The type of money
+        Args:
+            money (str): The number money insert to database.
+            tags (str): The type of money.
         """
         import datetime as dt
         tablename = self.key + dt.datetime.now().strftime("%Y%m%d")
-        self.__insert(tablename,tags,money)
+        self.__insert(tablename, tags, money)
 
-    def get_history_on_date(self,date):
+    def get_history_on_date(self, date):
         """
-        Get history of a date
+        Get history of a date.
 
-        @arg date: The date to get history
-        @return: List of history
+        Args:
+            date: The date to get history.
+
+        Returns:
+            List of history on the date.
         """
         tableName = self.key + date
         conn = self.sql.connect(self.urlDatabase)
@@ -134,11 +141,12 @@ class Money_database():
         return res
 
     def get_date(self):
-        '''
-        Get dates exist in database
+        """Get dates exist in database.
 
-        @return: List of date
-        '''
+        Returns:
+             List of date.
+        """
+
         conn = self.sql.connect(self.urlDatabase)
         nameDatabaseTemp = self.database.split(".")
         nameDatabase = nameDatabaseTemp[0]
@@ -152,9 +160,10 @@ class Money_database():
         return res
     def get_history_all_date(self):
         """
-        Get history of all date
+        Get history of all date.
 
-        return: dict ['<Date>']: array[dict{id, type, value, datetime}]
+        Returns:
+            dict ['<Date>']: array[dict{id, type, value, datetime}]
         """
         dates = self.get_date()
         res = {}

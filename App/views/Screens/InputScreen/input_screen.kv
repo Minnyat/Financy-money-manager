@@ -16,8 +16,6 @@
         pos_hint: {'center_x': 0.19, 'center_y': 0.81}
         on_press:
             app.cur_choice = "network"
-
-
     MDIconButton:
         icon: "hospital-building"
         theme_text_color: "Custom"
@@ -53,7 +51,6 @@
         pos_hint: {'center_x': 0.4, 'center_y': 0.67}
         on_press:
             app.cur_choice = "shopping"
-            
     MDIconButton:
         icon: "paw-outline"
         theme_text_color: "Custom"
@@ -61,19 +58,14 @@
         pos_hint: {'center_x': 0.61, 'center_y': 0.67}
         on_press:
             app.cur_choice = "pet"
-            
     MDIconButton:
         icon: "food-turkey"
         theme_text_color: "Custom"
-        #text_color: get_color_from_hex("#3474B9")
         pos_hint: {'center_x': 0.82, 'center_y': 0.67}
         on_press:
             app.cur_choice = "food"
 
     SaveButton:
-
-        # Call function from history_screen.py
-        # Add label from to HistoryScreen
         on_release:
             app.add_amount(app.cur_amount)
 

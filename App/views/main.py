@@ -85,7 +85,7 @@ class BudgetAPP(MDApp):
         self.init_history()
 
     def show_search_data(self, tag):
-        """Show searching data on history screen
+        """Show searching data on history screen.
 
         Args:
              tag (str): Search keyword
@@ -109,7 +109,7 @@ class BudgetAPP(MDApp):
         """Update the number pressed to input field.
 
         Args:
-            value (str): value number on text field.
+            value (str): Value number on text field.
         """
 
         self.input.press_button(value)
@@ -119,11 +119,14 @@ class BudgetAPP(MDApp):
     def add_amount(self, amount):
         """Add the spending to total spending and transactions
         then calculate the remaining budget.
+
+        Args:
+            amount (float): Entered amount of money.
         """
 
         error = Error(self.cur_choice, amount)
 
-        if error.isTrue:
+        if error.is_true:
             self.controller.save_money(self.cur_choice, amount)
 
             # Update total spending
