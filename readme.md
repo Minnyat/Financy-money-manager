@@ -11,4 +11,4 @@ Prerequisites
 Run: 
 `python -m App`
 
-[Documentation of project](./App/html/App/)
+[Documentation of project](./html/App/)
