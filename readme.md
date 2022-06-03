@@ -11,4 +11,4 @@ Prerequisites
 Run: 
 `python -m App`
 
-[Documentation of project](./html/App/)
+[Documentation of project](https://finacy.minhat.me)
