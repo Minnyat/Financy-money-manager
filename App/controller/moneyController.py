@@ -137,8 +137,13 @@ class Controller():
         date_befor = now + dt.timedelta(days=-30)
 
         dates = []
-        min_date = self.model.get_date()[0]
-        max_date = self.model.get_date()[-1]
+        temp = self.model.get_date()
+        if len(temp) < 1:
+            max_date = (now + dt.timedelta(days=-1)).strftime("%Y%m%d")
+            min_date = now.strftime("%Y%m%d")
+        else:
+            max_date = temp[-1]
+            min_date = temp[0]
 
         data = self.model.get_history_all_date()
         while date_befor <= now:
